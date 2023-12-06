@@ -1,0 +1,223 @@
+.footer {
+  padding: 48px 0 44px;
+  background-color: $main;
+  margin: auto 0 0 0;
+  height: 246px;
+  &.dark {
+    background-color: #0f0f11;
+  }
+  &__inner {
+    &-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    &-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: calc(36% - 40px);
+      max-width: 446px;
+      img {
+        width: 100%;
+      }
+    }
+    &-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: calc(64% - 40px);
+      max-width: 500px;
+      a {
+        padding: 5px;
+        font-size: 24px;
+        line-height: 100%;
+        font-weight: 700;
+        margin-right: 15px;
+        &:hover {
+          opacity: 1;
+          color: $green;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    &-social {
+      display: flex;
+      align-items: center;
+      margin-bottom: 32px;
+      justify-content: flex-end;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+        margin-right: 12px;
+        &:hover {
+          opacity: 1;
+          svg {
+            color: $primary;
+          }
+        }
+        &:last-child {
+          margin: 0;
+        }
+        svg {
+          width: 100%;
+          height: 100%;
+          color: $white;
+          transition: 0.3s ease;
+        }
+        img {
+          width: 100%;
+        }
+      }
+    }
+    &-copy {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p,
+      a {
+        font-size: 16px;
+        line-height: 100%;
+      }
+      &-links {
+        display: flex;
+        align-items: center;
+        a {
+          font-weight: 700;
+          margin-right: 12px;
+          &:hover {
+            opacity: 1;
+            color: $primary;
+          }
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+// 1024px
+@mixin footer-lg-xlg {
+  .footer {
+    padding: 30px 0;
+    height: 170px;
+    &__inner {
+      &-row {
+        margin-bottom: 10px;
+      }
+      &-links {
+        max-width: 370px;
+        a {
+          font-size: 20px;
+          margin-right: 8px;
+        }
+      }
+      &-social {
+        margin-bottom: 20px;
+      }
+      &-copy {
+        &-links {
+          a {
+            margin-right: 8px;
+          }
+        }
+        p,
+        a {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+// 750px
+@mixin footer-sm-md {
+  .footer {
+    height: unset;
+    &__inner {
+      &-row {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+      &-links {
+        width: 100%;
+        justify-content: center;
+      }
+      &-logo {
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 20px;
+      }
+      &-social {
+        justify-content: center;
+      }
+      &-copy {
+        flex-direction: column;
+        &-links {
+          order: -1;
+          margin-bottom: 18px;
+        }
+      }
+    }
+  }
+}
+// 540px
+@mixin footer-xsm-sm {
+  .footer {
+    padding: 16px 0 30px;
+    &__inner {
+      &-logo {
+        max-width: 255px;
+      }
+      &-links {
+        a {
+          padding: 4px;
+          font-size: 17px;
+          line-height: 17px;
+        }
+      }
+      &-social {
+        a {
+          width: 28px;
+          height: 28px;
+        }
+      }
+      &-copy {
+        &-links {
+          margin-bottom: 24px;
+        }
+        p {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}
+// 390px
+@mixin footer-xxxsm-xxsm {
+  .footer {
+    &__inner {
+      &-copy {
+        p,
+        a {
+          font-size: 11px;
+          text-align: center;
+        }
+      }
+      &-links {
+        a {
+          padding: 4px;
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+    }
+  }
+}

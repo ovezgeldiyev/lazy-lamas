@@ -1,0 +1,163 @@
+.nav {
+  &__inner {
+    display: flex;
+    align-items: center;
+    li {
+        margin-right: 20px;
+        &:last-child {
+            margin-right: 0;
+          }
+      a {
+        font-family: $riffic;
+        padding: 8px;
+        font-size: 24px;
+        line-height: 100%;
+        font-weight: 700;
+        &:hover {
+          opacity: 1;
+          color: $green;
+        }
+        &.active {
+          color: $green;
+        }
+      }
+    }
+  }
+}
+.burger {
+  display: none;
+}
+// 1024px
+@mixin nav-lg-xlg {
+  body.active {
+    overflow-y: hidden;
+  }
+  .nav {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    height: 0;
+    background: rgba($color: #000000, $alpha: 0.4);
+    opacity: 0;
+    width: 100%;
+    z-index: 4;
+    transition: all 0s linear 0.2s, opacity 0.2s ease;
+    transition-delay: 0.2s;
+    &.active {
+      opacity: 1;
+      height: calc(100% - 100px);
+      transition: opacity 0.2s ease;
+      .nav__inner {
+        @include transformReset;
+        transition-delay: 0.1s;
+      }
+    }
+    &__inner {
+      padding: 50px 20px;
+
+      flex-direction: column;
+      position: absolute;
+      justify-content: unset;
+      align-items: unset;
+      top: 0;
+      right: 0;
+      width: 320px;
+      height: 100%;
+      z-index: 5;
+      overflow-y: auto;
+      background-color: $black;
+      transform: translateX(100%);
+      transition: 0.5s ease;
+      opacity: 1;
+      li {
+        margin: 0 0 15px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a {
+          width: 100%;
+          text-align: center;
+        }
+      }
+      .button {
+        font-size: 20px;
+        padding: 12px;
+        margin-top:20px;
+      }
+    }
+  }
+  .burger {
+    display: block;
+    cursor: pointer;
+    @include transition;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    z-index: 11;
+    align-self: center;
+    &::before {
+      top: 15%;
+      width: 100%;
+      height: 3px;
+      background-color: $white;
+      transition: all 0.3s ease;
+      content: "";
+      position: absolute;
+      left: 50%;
+      @include transformX;
+      border-radius: 3px;
+    }
+    span {
+      top: 50%;
+      width: 100%;
+      height: 3px;
+      background-color: $white;
+      transition: all 0.3s ease;
+      position: absolute;
+      left: 50%;
+      @include transform;
+      @include transition;
+      border-radius: 3px;
+    }
+    &::after {
+      bottom: 15%;
+      width: 100%;
+      height: 3px;
+      background-color: $white;
+      transition: all 0.3s ease;
+      content: "";
+      position: absolute;
+      left: 50%;
+      @include transformX;
+      border-radius: 3px;
+    }
+    &.active {
+      &::before {
+        background-color: $primary;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%) rotate(45deg);
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      span {
+        opacity: 0;
+      }
+      &::after {
+        background-color: $primary;
+        bottom: 50%;
+        -webkit-transform: translate(-50%, 50%) rotate(-45deg);
+        transform: translate(-50%, 50%) rotate(-45deg);
+      }
+    }
+  }
+}
+
+// 540px
+@mixin nav-xsm-sm {
+  .nav {
+    top: 80px;
+    &.active {
+      height: calc(100% - 80px);
+    }
+  }
+}
